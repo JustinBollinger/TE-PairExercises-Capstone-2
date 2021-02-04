@@ -93,4 +93,11 @@ public class UserSqlDAO implements UserDAO
         user.setAuthorities("ROLE_USER");
         return user;
     }
+
+	@Override
+	public User findByUserId(Long userId)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
