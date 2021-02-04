@@ -26,7 +26,9 @@ public class JDBCAccountDAO  implements AccountDAO
 	{
 		BigDecimal balance = null;
 		
-		String sql = "SELECT balance FROM accounts WHERE account_id = ?";
+		String sql = "SELECT balance "
+				+ "FROM accounts "
+				+ "WHERE account_id = ?";
 		
 		SqlRowSet result = jdbcTemplate.queryForRowSet(sql, accountId);
 		result.next();
@@ -40,7 +42,9 @@ public class JDBCAccountDAO  implements AccountDAO
 	public Integer getAccountId(int userId)
 	{
 		Integer accountId = null;
-		String sql = "SELECT account_id FROM acounts WHERE user_id = ?";
+		String sql = "SELECT account_id "
+				+ "FROM acounts "
+				+ "WHERE user_id = ?";
 		SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userId);
 		result.next();
 		
