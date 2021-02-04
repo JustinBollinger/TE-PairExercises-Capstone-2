@@ -22,7 +22,8 @@ public class UserCredentials
         this.username = username;
     }
 
-    public String getPassword() {
+    public String getPassword() 
+    {
         return password;
     }
 
