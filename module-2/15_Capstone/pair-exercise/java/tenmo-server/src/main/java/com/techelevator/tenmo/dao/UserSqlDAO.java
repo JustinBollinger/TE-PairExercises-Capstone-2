@@ -13,12 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class UserSqlDAO implements UserDAO {
+public class UserSqlDAO implements UserDAO
+{
 
     private static final double STARTING_BALANCE = 1000;
     private JdbcTemplate jdbcTemplate;
 
-    public UserSqlDAO(JdbcTemplate jdbcTemplate) {
+    public UserSqlDAO(JdbcTemplate jdbcTemplate)
+    {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -42,9 +44,11 @@ public class UserSqlDAO implements UserDAO {
     }
 
     @Override
-    public User findByUsername(String username) throws UsernameNotFoundException {
+    public User findByUsername(String username) throws UsernameNotFoundException
+    {
         for (User user : this.findAll()) {
-            if( user.getUsername().toLowerCase().equals(username.toLowerCase())) {
+            if( user.getUsername().toLowerCase().equals(username.toLowerCase())) 
+            {
                 return user;
             }
         }
