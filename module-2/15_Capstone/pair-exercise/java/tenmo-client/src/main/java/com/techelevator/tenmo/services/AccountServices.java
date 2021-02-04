@@ -1,5 +1,6 @@
 package com.techelevator.tenmo.services;
 
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ import com.techelevator.tenmo.models.UserCredentials;
 import com.techelevator.view.ConsoleService;
 
 
-public class AccountService 
+public class AccountServices 
 {
 	private static AuthenticatedUser currentUser;
 	private static ConsoleService console;
@@ -26,12 +27,12 @@ public class AccountService
 	
 	public void AccountService(AuthenticationService authenticationService)
 	{
-		AccountService.authenticationService = authenticationService;
+		AccountService.authenticationServices = authenticationService;
 	}
 	
 	Scanner scanner = new Scanner(System.in);
 	
-	AccountService AccountService = new AccountService();
+	AccountServices AccountService = new AccountServices();
 	
 	private static final String API_BASE_URL = "http://localhost:8080/";
 	

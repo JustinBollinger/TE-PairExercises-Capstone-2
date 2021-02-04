@@ -13,7 +13,7 @@ import com.techelevator.tenmo.models.AuthenticatedUser;
 import com.techelevator.tenmo.models.Transfer;
 import com.techelevator.tenmo.models.User;
 import com.techelevator.tenmo.models.UserCredentials;
-import com.techelevator.tenmo.services.AccountService;
+import com.techelevator.tenmo.services.AccountServices;
 import com.techelevator.tenmo.services.AuthenticationService;
 import com.techelevator.tenmo.services.AuthenticationServiceException;
 import com.techelevator.view.ConsoleService;
@@ -73,7 +73,7 @@ public class App
 				if (MAIN_MENU_OPTION_VIEW_BALANCE.equals(choice)) 
 				
 				{
-					System.out.println("Your current balance is: $" + AccountService.viewCurrentBalance());
+					System.out.println("Your current balance is: $" + AccountServices.viewCurrentBalance());
 
 				} else if (MAIN_MENU_OPTION_VIEW_PAST_TRANSFERS.equals(choice))
 				
@@ -94,7 +94,7 @@ public class App
 				} else if (MAIN_MENU_OPTION_LOGIN.equals(choice))
 				
 				{
-					AccountService.login();
+					AccountServices.login();
 				} else {
 					exitProgram();
 				}
@@ -239,7 +239,7 @@ public class App
 				if (!amtToSend.equals("0")) {
 					
 					BigDecimal BDtoSend = new BigDecimal(amtToSend);
-					BigDecimal balance = AccountService.viewCurrentBalance();
+					BigDecimal balance = AccountServices.viewCurrentBalance();
 					if (balance.compareTo(BDtoSend) < 0) {
 						System.out.println("Sorry. Insufficient funds.");
 						mainMenu();
@@ -311,7 +311,7 @@ public class App
 
 		private static void approveTransfer(Transfer transfer) 
 		{
-			if (new BigDecimal(transfer.getAmount()).compareTo(AccountService.viewCurrentBalance()) == 1)
+			if (new BigDecimal(transfer.getAmount()).compareTo(AccountServices.viewCurrentBalance()) == 1)
 			{
 				System.out.println("You don't have enough money.");
 				mainMenu();
@@ -340,10 +340,10 @@ public class App
 				String choice = (String) console.getChoiceFromOptions(LOGIN_MENU_OPTIONS);
 				if (LOGIN_MENU_OPTION_LOGIN.equals(choice)) 
 				{
-					AccountService.login();
+					AccountServices.login();
 				} else if (LOGIN_MENU_OPTION_REGISTER.equals(choice)) 
 				{
-					AccountService.register();
+					AccountServices.register();
 				} else {
 					exitProgram();
 				}
