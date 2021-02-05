@@ -1,12 +1,11 @@
 package com.techelevator.view;
 
-
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class ConsoleService 
+public class ConsoleService
 
 {
 
@@ -19,10 +18,10 @@ public class ConsoleService
 		this.in = new Scanner(input);
 	}
 
-	public Object getChoiceFromOptions(Object[] options) 
+	public Object getChoiceFromOptions(Object[] options)
 	{
 		Object choice = null;
-		while (choice == null) 
+		while (choice == null)
 		{
 			displayMenuOptions(options);
 			choice = getChoiceFromUserInput(options);
@@ -35,18 +34,18 @@ public class ConsoleService
 	{
 		Object choice = null;
 		String userInput = in.nextLine();
-		try {
+		try
+		{
 			int selectedOption = Integer.valueOf(userInput);
 			if (selectedOption > 0 && selectedOption <= options.length)
 			{
 				choice = options[selectedOption - 1];
 			}
-		} catch (NumberFormatException e) 
+		} catch (NumberFormatException e)
 		{
 
-			
 		}
-		if (choice == null) 
+		if (choice == null)
 		{
 			out.println("\n*** " + userInput + " is not a valid option ***\n");
 		}
@@ -54,11 +53,11 @@ public class ConsoleService
 	}
 
 	private void displayMenuOptions(Object[] options)
-	
+
 	{
 		out.println();
 		for (int i = 0; i < options.length; i++)
-		
+
 		{
 			int optionNum = i + 1;
 			out.println(optionNum + ") " + options[i]);
@@ -66,47 +65,48 @@ public class ConsoleService
 		out.print("\nPlease choose an option >>> ");
 		out.flush();
 	}
-	
-	public void displaySimpleMenu(Object[] options) 
-	
+
+	public void displaySimpleMenu(Object[] options)
+
 	{
 		out.println();
-		for (int i = 0; i < options.length; i++) 
-		
+		for (int i = 0; i < options.length; i++)
+
 		{
-			
+
 			out.println(options[i]);
 		}
-		
+
 		out.flush();
 	}
 
-	public String getUserInput(String prompt) 
+	public String getUserInput(String prompt)
 	{
-		out.print(prompt+"> ");
+		out.print(prompt + "> ");
 		out.flush();
 		return in.nextLine();
 	}
 
 	public Integer getUserInputInteger(String prompt)
-	
+
 	{
 		Integer result = null;
 		do
 		{
-			out.print(prompt+"> ");
+			out.print(prompt + "> ");
 			out.flush();
 			String userInput = in.nextLine();
-			try {
+			try
+			{
 				result = Integer.parseInt(userInput);
-			} catch(NumberFormatException e) 
-			
+			} catch (NumberFormatException e)
+
 			{
 				out.println("\n*** " + userInput + " is not valid ***\n");
 			}
-		} 
-		
-		while(result == null);
+		}
+
+		while (result == null);
 		return result;
 	}
 }
