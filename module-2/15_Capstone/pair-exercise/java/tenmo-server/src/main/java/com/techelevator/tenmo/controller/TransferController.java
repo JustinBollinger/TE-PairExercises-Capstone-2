@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.techelevator.tenmo.dao.TransfersDAO;
+
+import com.techelevator.tenmo.dao.TransferDAO;
 import com.techelevator.tenmo.model.Transfers;
 
 @RestController
 @PreAuthorize("isAuthenticated()")
 public class TransferController {
 
-	@Autowired
-	private TransfersDAO transfersDAO;
+//	@Autowired
+	private TransferDAO transfersDAO;
 	
 	@RequestMapping(value = "account/transfers/{id}", method = RequestMethod.GET)
 	public List<Transfers> getAllMyTransfers(@PathVariable int id) {
