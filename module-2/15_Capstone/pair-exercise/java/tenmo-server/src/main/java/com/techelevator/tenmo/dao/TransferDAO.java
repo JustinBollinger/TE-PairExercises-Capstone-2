@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.techelevator.tenmo.model.Transfers;
 
-public interface TransfersDAO {
+public interface TransferDAO {
 
 	public List<Transfers> getAllTransfers(int userId);
 	public Transfers getTransferById(int transactionId);
@@ -14,3 +14,4 @@ public interface TransfersDAO {
 	public List<Transfers> getPendingRequests(int userId);
 	public String updateTransferRequest(Transfers transfer, int statusId);
 	
+}

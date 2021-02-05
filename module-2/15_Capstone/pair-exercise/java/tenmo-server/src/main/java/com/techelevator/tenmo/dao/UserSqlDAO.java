@@ -88,4 +88,18 @@ public class UserSqlDAO implements UserDAO {
         user.setAuthorities("ROLE_USER");
         return user;
     }
+
+	@Override
+	public double getBalance(int id)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getAccountId(int id)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

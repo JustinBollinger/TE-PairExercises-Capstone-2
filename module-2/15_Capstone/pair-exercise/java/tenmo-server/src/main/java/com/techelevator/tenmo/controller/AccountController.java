@@ -18,17 +18,17 @@ import com.techelevator.tenmo.model.User;
 @PreAuthorize("isAuthenticated()")
 public class AccountController {
 
-	@Autowired
+//	@Autowired
 	private AccountDAO accountDAO;
-	@Autowired
+//	@Autowired
 	private UserDAO userDAO;
 
 	
-	public AccountController(AccountDAO accountDAO, UserDAO userDAO) {
-		this.accountDAO = accountDAO;
-		this.userDAO = userDAO;
-	}
-	
+//	public AccountController(AccountDAO accountDAO, UserDAO userDAO) {
+//		this.accountDAO = accountDAO;
+//		this.userDAO = userDAO;
+//	}
+
 	@RequestMapping(path = "balance/{id}", method = RequestMethod.GET)
 	public BigDecimal getBalance(@PathVariable int id) {
 		BigDecimal balance = accountDAO.getBalance(id);

@@ -12,7 +12,7 @@ import com.techelevator.tenmo.model.TransferNotFoundException;
 import com.techelevator.tenmo.model.Transfers;
 
 @Component
-public class JDBCTransfersDAO implements TransfersDAO {
+public class JDBCTransfersDAO implements TransferDAO {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
