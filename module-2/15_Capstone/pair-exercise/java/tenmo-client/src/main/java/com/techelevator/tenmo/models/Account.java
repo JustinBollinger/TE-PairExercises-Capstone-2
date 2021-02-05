@@ -17,7 +17,8 @@ public class Account
 	{
 		this.accountId = accountId;
 	}
-	public int getUserId() {
+	public int getUserId()
+	{
 		return userId;
 	}
 	public void setUserId(int userId) 

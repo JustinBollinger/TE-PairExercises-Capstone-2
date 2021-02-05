@@ -12,22 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.tenmo.dao.AccountDAO;
 import com.techelevator.tenmo.dao.UserDAO;
+import com.techelevator.tenmo.model.Account;
 import com.techelevator.tenmo.model.User;
 
 @RestController
 @PreAuthorize("isAuthenticated()")
 public class AccountController {
 
-//	@Autowired
+
 	private AccountDAO accountDAO;
-//	@Autowired
+
 	private UserDAO userDAO;
 
-	
-//	public AccountController(AccountDAO accountDAO, UserDAO userDAO) {
-//		this.accountDAO = accountDAO;
-//		this.userDAO = userDAO;
-//	}
 
 	@RequestMapping(path = "balance/{id}", method = RequestMethod.GET)
 	public BigDecimal getBalance(@PathVariable int id) {
