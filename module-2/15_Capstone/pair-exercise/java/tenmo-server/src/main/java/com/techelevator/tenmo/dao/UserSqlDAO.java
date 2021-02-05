@@ -1,28 +1,25 @@
 package com.techelevator.tenmo.dao;
 
-import com.techelevator.tenmo.model.User;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-//import com.techelevator.tenmo.model.UserIdNotFoundException;
+import com.techelevator.tenmo.model.User;
 
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
-
-@Component
-public class UserSqlDAO implements UserDAO
-{
+@Service
+public class UserSqlDAO implements UserDAO {
 
     private static final double STARTING_BALANCE = 1000;
     private JdbcTemplate jdbcTemplate;
 
-    public UserSqlDAO(JdbcTemplate jdbcTemplate)
-    {
+    public UserSqlDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -46,11 +43,9 @@ public class UserSqlDAO implements UserDAO
     }
 
     @Override
-    public User findByUsername(String username) throws UsernameNotFoundException
-    {
+    public User findByUsername(String username) throws UsernameNotFoundException {
         for (User user : this.findAll()) {
-            if( user.getUsername().toLowerCase().equals(username.toLowerCase())) 
-            {
+            if( user.getUsername().toLowerCase().equals(username.toLowerCase())) {
                 return user;
             }
         }
@@ -93,11 +88,4 @@ public class UserSqlDAO implements UserDAO
         user.setAuthorities("ROLE_USER");
         return user;
     }
-
-	@Override
-	public User findByUserId(Long userId)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

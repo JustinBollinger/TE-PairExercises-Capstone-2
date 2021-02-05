@@ -1,101 +1,117 @@
 package com.techelevator.tenmo.models;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-// not sure if we need - would this be like the desposit.java done in auction review code? //
-
 
 public class Transfer
 {
-	private int id;
-	private int typeId;
-	private int statusId;
-	private int accountFrom;
-	private int accountTo;
-	private double amount;
 
-public Transfer()
-{
+	private Integer transferId;
+	private Integer transferTypeId;
+	private Integer transferStatusId;
+	private Integer accountFrom;
+	private Integer accountTo;
+	private BigDecimal amount;
 	
-}
-public Transfer (int type, int status, int from, int to, double amount)
-{
-	this.typeId = type;
-	this.statusId = status;
-	this.accountFrom = from; 
-	this.accountTo = to;
-	this.amount = amount;
-}
-
-
-public int getId()
-{
-	return id;
-}
-
-public int getStatusId()
-{
-	return statusId;
-}
-
-public int getTypeId()
-{
-	return typeId;
-}
-
- public int getAccountTo()
- {
-	 return accountTo;
- }
-
-public int getAccountFrom()
-{
-	return accountFrom;
-}
-
-public double getAmount()
-{
-	return amount;
-}
-public void setId(int id)
-{
-	this.id = id;
-}
-public void setAmount(double amount)
-{
-	this.amount = amount;
-}
-
-public void setStatusId(int statusId)
-{
-	this.statusId = statusId;
-}
-public void setAccountFrom(int accountFrom)
-{
-	this.accountFrom = accountFrom;
-}
-
-public void setAccountTo(int accountTo)
-{
-	this.accountTo = accountTo;
-}
-
-
-public String toString (User user)
-{
-	if (user.getId() == this.getAccountFrom())
-		
+	public Transfer() 
 	{
-		return this.id + "\t" + "From: " +user.getUsername() + "\t$" + 
-	new BigDecimal(this.amount).setScale(2, RoundingMode.HALF_UP);
-	}
-	
-	else if (user.getId() == this.getAccountTo()) {
-		return this.id + "\t" + "To: " +user.getUsername() + "\t$"
-	+ new BigDecimal(this.amount).setScale(2, RoundingMode.HALF_UP);
-	}
-	
-	else return "invalid transaction";
-}
-}
 
+	}
+
+
+	public Transfer(Integer transferId,
+				Integer transferTypeId, 
+				Integer transferStatusId,
+				Integer accountFrom,
+				Integer accountTo,
+				BigDecimal amount) 
+	
+	{
+		this.transferId = transferId;
+		this.transferTypeId = transferTypeId;
+		this.transferStatusId = transferStatusId;
+		this.accountFrom = accountFrom;
+		this.accountTo = accountTo;
+		this.amount = amount;
+	}
+
+
+	public Integer getTransferId() 
+	{
+		return transferId;
+	}
+
+
+	public void setTransferId(Integer transferId)
+	{
+		this.transferId = transferId;
+	}
+
+
+	public Integer getTransferTypeId() 
+	{
+		return transferTypeId;
+	}
+
+
+	public void setTransferTypeId(Integer transferTypeId) 
+	{
+		this.transferTypeId = transferTypeId;
+	}
+
+
+	public Integer getTransferStatusId()
+	{
+		return transferStatusId;
+	}
+
+
+	public void setTransferStatusId(Integer transferStatusId)
+	{
+		this.transferStatusId = transferStatusId;
+	}
+
+
+	public Integer getAccountFrom()
+	{
+		return accountFrom;
+	}
+
+
+	public void setAccountFrom(Integer accountFrom)
+	{
+		this.accountFrom = accountFrom;
+	}
+
+
+	public Integer getAccountTo() 
+	{
+		return accountTo;
+	}
+
+
+	public void setAccountTo(Integer accountTo) 
+	{
+		this.accountTo = accountTo;
+	}
+
+
+	public BigDecimal getAmount() 
+	{
+		return amount;
+	}
+
+
+	public void setAmount(BigDecimal amount) 
+	{
+		this.amount = amount;
+	}
+
+
+	@Override
+	public String toString() 
+	{
+		return String.format("%d    $ %.02f",
+						transferId, amount);
+	}
+
+}

@@ -1,12 +1,12 @@
 package com.techelevator.tenmo.models;
 
-public class UserCredentials 
+public class UserCredentials
 {
 
     private String username;
     private String password;
 
-    public UserCredentials(String username, String password) 
+    public UserCredentials(String username, String password)
     {
 		this.username = username;
 		this.password = password;
