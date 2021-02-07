@@ -1,3 +1,3 @@
-SELECT *
-FROM accounts;
-WHERE account_id = ?;
+SELECT balance
+FROM accounts
+WHERE user_id = ?;

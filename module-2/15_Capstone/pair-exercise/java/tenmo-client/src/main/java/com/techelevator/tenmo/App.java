@@ -94,10 +94,10 @@ public class App
 
 	private void viewCurrentBalance()
 	{
-		AccountService as = new AccountService(API_BASE_URL, currentUser);
+		AccountService accountService = new AccountService(API_BASE_URL, currentUser);
 		try
 		{
-			BigDecimal balance = as.getBalance();
+			accountService.getBalance();
 			
 		}
 		catch (NullPointerException e)

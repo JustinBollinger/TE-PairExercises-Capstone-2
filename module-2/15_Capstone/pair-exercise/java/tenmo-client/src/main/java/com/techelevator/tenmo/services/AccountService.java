@@ -26,9 +26,17 @@ public class AccountService
 
 	public BigDecimal getBalance()
 	{
-		String url = BASE_URL + "/account";
-		BigDecimal balance = restTemplate.getForObject(url, BigDecimal.class);
-
+		BigDecimal balance = new BigDecimal(0);
+		
+		try
+		{
+			balance = restTemplate.exchange(BASE_URL + "balance/" + currentUser.getUser().getId(), HttpMethod.GET, makeAuthEntity(), BigDecimal.class).getBody();
+			System.out.println("Your current account balance is: $" + balance);
+		}
+		catch (RestClientException e)
+		{
+			System.out.println("Error retrieving balance");
+		}
 		return balance;
 	}
 
