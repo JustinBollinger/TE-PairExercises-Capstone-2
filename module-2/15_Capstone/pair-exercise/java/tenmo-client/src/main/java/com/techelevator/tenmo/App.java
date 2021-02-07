@@ -1,5 +1,7 @@
 package com.techelevator.tenmo;
 
+import java.math.BigDecimal;
+
 import com.techelevator.tenmo.models.AuthenticatedUser;
 import com.techelevator.tenmo.models.UserCredentials;
 import com.techelevator.tenmo.services.AccountService;
@@ -95,7 +97,8 @@ public class App
 		AccountService as = new AccountService(API_BASE_URL, currentUser);
 		try
 		{
-			as.getBalance();
+			BigDecimal balance = as.getBalance();
+			
 		}
 		catch (NullPointerException e)
 		{
