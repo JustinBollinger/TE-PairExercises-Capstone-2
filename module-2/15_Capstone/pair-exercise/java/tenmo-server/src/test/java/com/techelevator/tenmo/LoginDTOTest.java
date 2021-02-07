@@ -15,7 +15,7 @@ public class LoginDTOTest {
 	public void getUserName_equals_Hello()
 	{
 		login.setUsername("Hello!");
-		assertEquals(login.getUsername(), "Hello");
+		assertEquals(login.getUsername(), "Hello!");
 	}
 	
 	@Test
