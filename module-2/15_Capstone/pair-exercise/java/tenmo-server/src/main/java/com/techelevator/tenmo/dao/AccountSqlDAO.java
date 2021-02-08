@@ -46,38 +46,33 @@ public class AccountSqlDAO implements AccountDAO
 		}
 		
 		return balance;
-
 	}
 
-//
-//	@Override
-//	public BigDecimal addToBalance(BigDecimal amountToAdd, int id)
-//	{
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public BigDecimal subtractFromBalance(BigDecimal amountToSubtract, int id)
-//	{
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public Account findUserById(int userId)
-//	{
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public Account findAccountById(int id)
-//	{
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//	
+
+	@Override
+	public BigDecimal addToBalance(BigDecimal amountToAdd, int id)
+	{
+		return null;
+	}
+
+	@Override
+	public BigDecimal subtractFromBalance(BigDecimal amountToSubtract, int id)
+	{
+		return null;
+	}
+
+	@Override
+	public Account findUserById(int userId)
+	{
+		return null;
+	}
+
+	@Override
+	public Account findAccountById(int id)
+	{
+		return null;
+	}
+	
 	private Account mapRowToAccount(SqlRowSet row)
 	{
 		Account account = new Account();
@@ -87,36 +82,5 @@ public class AccountSqlDAO implements AccountDAO
 		account.setBalance(row.getBigDecimal("balance"));
 
 		return account;
-	}
-//	
-//	
-//}
-
-	@Override
-	public BigDecimal addToBalance(BigDecimal amountToAdd, int id)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public BigDecimal subtractFromBalance(BigDecimal amountToSubtract, int id)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Account findUserById(int userId)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Account findAccountById(int id)
-	{
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
